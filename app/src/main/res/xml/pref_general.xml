@@ -13,6 +13,7 @@
         android:key="@string/pref_location_key"
         android:defaultValue="@string/pref_location_default"
         android:inputType="text"
+        android:hint="Please insert location"
         android:singleLine="true" />
 
     <ListPreference
@@ -22,6 +23,14 @@
         android:defaultValue="@string/temp_pref_default_value"
         android:entries="@array/temp_pref_list_items"
         android:entryValues="@array/temp_pref_list_items_values" />
+
+    <CheckBoxPreference
+        android:title="@string/pref_enable_notifications_label"
+        android:key="@string/pref_enable_notifications_key"
+        android:summaryOff="@string/pref_enable_notifications_false"
+        android:summaryOn="@string/pref_enable_notifications_true"
+        android:defaultValue="@string/pref_enable_notifications_default" ></CheckBoxPreference>
+
 
 
 

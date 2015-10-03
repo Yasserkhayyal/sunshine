@@ -23,6 +23,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 public class WeatherProvider extends ContentProvider {
 
@@ -191,6 +192,7 @@ public class WeatherProvider extends ContentProvider {
                         (WeatherContract.WeatherEntry.TABLE_NAME,
                                 projection,selection,selectionArgs,null,null,sortOrder);
                 break;
+
             }
             // "location"
             case LOCATION: {
@@ -281,6 +283,8 @@ public class WeatherProvider extends ContentProvider {
         //normalize the date value
         if (values.containsKey(WeatherContract.WeatherEntry.COLUMN_DATE)) {
             long dateValue = values.getAsLong(WeatherContract.WeatherEntry.COLUMN_DATE);
+            Log.v("before normalization",""+dateValue);
+            Log.v("after normalization",""+WeatherContract.normalizeDate(dateValue));
             values.put(WeatherContract.WeatherEntry.COLUMN_DATE, WeatherContract.normalizeDate(dateValue));
         }
     }
